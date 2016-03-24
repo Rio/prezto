@@ -17,8 +17,8 @@ fi
 # Editors
 #
 
-export EDITOR='nano'
-export VISUAL='nano'
+export EDITOR='nvim'
+export VISUAL='nvim'
 export PAGER='less'
 
 #
@@ -36,6 +36,9 @@ fi
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
 
+# Aliases
+alias cube="cd ~/projects/cube && ll"
+
 # Set the the list of directories that cd searches.
 # cdpath=(
 #   $cdpath
@@ -44,8 +47,17 @@ typeset -gU cdpath fpath mailpath path
 # Set the list of directories that Zsh searches for programs.
 path=(
   /usr/local/{bin,sbin}
+  /usr/local/go/bin
+  $HOME/.cargo/bin
+  $HOME/projects/go/bin
   $path
 )
+
+#
+# SSH Exports
+#
+SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
+export SSH_AUTH_SOCK   # enable gpg-agent for ssh
 
 #
 # Less
